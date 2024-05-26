@@ -29,6 +29,11 @@ class Reasons(models.Model):
         auto_now_add=True,
     )
 
+    class Meta:
+        managed = True
+        verbose_name = "На що скидались"
+        verbose_name_plural = "На що скидались"
+
     def __str__(self):
         return self.name
 
@@ -58,6 +63,14 @@ class SenderMoney(models.Model):
         verbose_name="Дата створення запису",
         auto_now_add=True,
     )
+
+    class Meta:
+        managed = True
+        verbose_name = "Відправник $$$"
+        verbose_name_plural = "Відправники $$$"
+        indexes = [
+            models.Index(fields=["id", "date_time_create", ])
+        ]
 
     def __str__(self):
         return f"{self.name} {self.surname}"
@@ -95,6 +108,11 @@ class IncomingMoney(models.Model):
         auto_now_add=True,
     )
 
+    class Meta:
+        managed = True
+        verbose_name = "Приход грошей"
+        verbose_name_plural = "Приход грошей"
+
     def __str__(self):
         return f"{self.who_send.name} {self.who_send.surname} ({self.type_oper})"
 
@@ -125,6 +143,11 @@ class OutcomingMoney(models.Model):
         verbose_name="Час створення запису",
         auto_now_add=True,
     )
+
+    class Meta:
+        managed = True
+        verbose_name = "Витрата грошей"
+        verbose_name_plural = "Витрата грошей"
 
     def __str__(self):
         return f"{self.rsn} ({self.type_oper})"
