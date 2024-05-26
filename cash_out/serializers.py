@@ -55,9 +55,12 @@ class SenderMoneyFullSerializer(SenderMoneySerializer):
     Sender full info serializer (inherit)
     """
 
+    who = IncomingMoneySerializer(many=True)
+
     class Meta(SenderMoneySerializer.Meta):
         fields = SenderMoneySerializer.Meta.fields
         fields += [
             "other_info",
             "date_time_create",
+            "who",
         ]
