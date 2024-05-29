@@ -28,6 +28,7 @@ class Reasons(models.Model):
         verbose_name="Дата створення запису",
         auto_now_add=True,
     )
+    objects = models.Manager()
 
     class Meta:
         managed = True
@@ -63,6 +64,7 @@ class SenderMoney(models.Model):
         verbose_name="Дата створення запису",
         auto_now_add=True,
     )
+    objects = models.Manager()
 
     class Meta:
         managed = True
@@ -107,6 +109,7 @@ class IncomingMoney(models.Model):
         verbose_name="Час створення запису",
         auto_now_add=True,
     )
+    objects = models.Manager()
 
     class Meta:
         managed = True
@@ -143,6 +146,7 @@ class OutcomingMoney(models.Model):
         verbose_name="Час створення запису",
         auto_now_add=True,
     )
+    objects = models.Manager()
 
     class Meta:
         managed = True
